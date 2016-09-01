@@ -4,11 +4,6 @@ FROM ubuntu:16.04
 # Author
 MAINTAINER SUMIN "dev@sumin.me"
 
-# ENV
-ENV ENV_PATH /opt/env
-RUN mkdir $ENV_PATH
-ENV PATH $PATH:$ENV_PATH/bin
-
 # Update system
 RUN apt-get update
 RUN apt-get -y install wget and curl
