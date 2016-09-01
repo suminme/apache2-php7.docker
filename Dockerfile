@@ -23,6 +23,7 @@ RUN a2enconf fqdn
 
 # 
 ADD run.sh /run.sh
+ADD permission.sh /permission.sh
 RUN chmod 755 /*.sh
 
 # 
