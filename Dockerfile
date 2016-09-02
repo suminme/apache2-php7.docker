@@ -15,19 +15,15 @@ RUN apt-get -y install apache2
 RUN apt-get -y install php libapache2-mod-php php-cli php-gd php-mysql php-curl php7.0-zip php7.0-dom php7.0-mbstring
 
 # Config
-RUN sed -i "s/AllowOverride None/AllowOverride ALL/g" /etc/apache2/apache2.conf
 RUN a2enmod rewrite
+RUN sed -i "s/AllowOverride None/AllowOverride ALL/g" /etc/apache2/apache2.conf
 
 RUN echo "ServerName localhost" | tee /etc/apache2/conf-available/fqdn.conf
 RUN a2enconf fqdn
 
 # 
-ADD run.sh /run.sh
+ADD deploy.sh /run.sh
 ADD permission.sh /permission.sh
-RUN chmod 755 /*.sh
-
-# 
-EXPOSE 80
 
 # 
 CMD ["/run.sh"]
