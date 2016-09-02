@@ -26,4 +26,4 @@ ADD deploy.sh /run.sh
 ADD permission.sh /permission.sh
 
 # 
-CMD ["/run.sh"]
+CMD ["/deploy.sh"]
